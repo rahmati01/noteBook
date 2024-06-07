@@ -7,10 +7,18 @@ listEl.addEventListener(`click`, close);
 function addItem(e) {
   e.preventDefault();
   if (inputEl.value.trim() != ``) {
-    listEl.innerHTML += `<li>${inputEl.value} <i class="bx bx-x-circle"></i></li>`;
+    listEl.innerHTML += `<li>
+    ${inputEl.value}
+    <i class="bx bx-x-circle"></i>
+    </li>`;
+    addToLocalstorage(inputEl.value);
   }
   inputEl.value = ``;
   inputEl.focus();
+}
+
+function addToLocalstorage(txt) {
+  localStorage.setItem(`name`, txt);
 }
 
 function close(e) {
